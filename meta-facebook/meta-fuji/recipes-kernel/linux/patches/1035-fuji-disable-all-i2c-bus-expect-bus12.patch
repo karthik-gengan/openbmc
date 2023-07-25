@@ -1,0 +1,89 @@
+From 0a17ab003cb73abdd0ffb0eb43be3e02e7b06a67 Mon Sep 17 00:00:00 2001
+From: KarthikGengan <karthik-gengan@celestica.com>
+Date: Mon, 24 Jul 2023 05:15:54 +0000
+Subject: [PATCH] fuji:disable all i2c bus expect bus12
+
+---
+ .../arm/boot/dts/aspeed-bmc-facebook-fuji.dts | 54 ++++++++++++++++++-
+ 1 file changed, 52 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm/boot/dts/aspeed-bmc-facebook-fuji.dts b/arch/arm/boot/dts/aspeed-bmc-facebook-fuji.dts
+index df04f18679fb..ec2eeab2e82d 100644
+--- a/arch/arm/boot/dts/aspeed-bmc-facebook-fuji.dts
++++ b/arch/arm/boot/dts/aspeed-bmc-facebook-fuji.dts
+@@ -63,20 +63,70 @@ &jtag1 {
+ &i2c0 {
+ 	multi-master;
+ 	bus-frequency = <1000000>;
++	status = "disable";
++};
++
++&i2c1 {
++	status = "disable";
+ };
+ 
+ &i2c2 {
+-	status = "okay";
++	status = "disable";
++};
++
++&i2c3 {
++	status = "disable";
++};
++
++&i2c4 {
++	status = "disable";
++};
++
++&i2c5 {
++	status = "disable";
++};
++
++&i2c6 {
++	status = "disable";
++};
++
++&i2c7 {
++	status = "disable";
+ };
+ 
+ &i2c8 {
+-	status = "okay";
++	status = "disable";
++};
++
++&i2c9 {
++	status = "disable";
++};
++
++
++&i2c10 {
++	status = "disable";
+ };
+ 
+ &i2c11 {
++	status = "disable";
++};
++
++&i2c12 {
+ 	status = "okay";
+ };
+ 
++&i2c13 {
++	status = "disable";
++};
++
++&i2c14 {
++	status = "disable";
++};
++
++&i2c15 {
++	status = "disable";
++};
++
+ &ehci1 {
+ 	status = "okay";
+ };
+-- 
+2.25.1
+
