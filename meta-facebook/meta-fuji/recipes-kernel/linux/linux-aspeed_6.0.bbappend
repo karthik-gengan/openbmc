@@ -22,6 +22,8 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/patches:"
 #
 SRC_URI += "file://patches/0501-i2c-add-a-slave-backend-to-receive-and-q.patch \
             file://patches/0502-add-i2c-slave-inactive-timeout-support.patch \
+            file://patches/0505-clk-aspeed-change.patch \
+            file://patches/0506-i2c-aspeed-new-driver-for-Ast2620.patch \
             file://patches/0510-driver-xdpe132g5c-pmbus.patch \
            "
 
@@ -36,5 +38,7 @@ SRC_URI += "file://1001-ARM-dts-aspeed-fuji-add-i2c-slave-timeout-for-i2c-bus.pa
 	    file://1031-Added-Facebook-mfd-usmc-driver.patch \
 	    file://1032-Added-Facebook-fboss-usmc-driver.patch \
 	    file://1033-Include-spidev-into-SPI-ID-table.patch \
+	    file://1034-remove-i2c-mux-bus.patch \
+      file://1042-buff-mode-update.patch \
            "
 

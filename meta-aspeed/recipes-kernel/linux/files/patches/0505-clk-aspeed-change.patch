@@ -1,0 +1,29 @@
+From 591052bea32d153e4ab87cc5f932dceaefc0815a Mon Sep 17 00:00:00 2001
+From: Ryan Chen <ryan_chen@aspeedtech.com>
+Date: Tue, 23 Nov 2021 16:24:27 +0800
+Subject: [PATCH] clk:aspeed:change
+ builtin_platform_driver(aspeed_g6_clk_driver) to core_initcall
+Change-Id: I2f14e12d52d27acb1cd3dbd3e7179f907c5248cc
+---
+ drivers/clk/clk-ast2600.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+diff --git a/drivers/clk/clk-ast2600.c b/drivers/clk/clk-ast2600.c
+index d7324b1065258d..1721fd76205964 100644
+--- a/drivers/clk/clk-ast2600.c
++++ b/drivers/clk/clk-ast2600.c
+@@ -686,7 +686,13 @@ static struct platform_driver aspeed_g6_clk_driver = {
+    .suppress_bind_attrs = true,
+  },
+ };
+-builtin_platform_driver(aspeed_g6_clk_driver);
++
++static int __init aspeed_g6_clk_init(void)
++{
++ return platform_driver_register(&aspeed_g6_clk_driver);
++}
++
++core_initcall(aspeed_g6_clk_init);
+ 
+ static const u32 ast2600_a0_axi_ahb_div_table[] = {
+  2, 2, 3, 5,
+
